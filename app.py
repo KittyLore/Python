@@ -53,10 +53,15 @@ def render_resultados
 
     #La condicion de temperatura
 
-    data ["wather"][0]['main']}
+    weather = data ["wather"][0]['main']
+
+    location = data ['name']
 
 
-def get_wather_results(cityname, apy_key)
+return render_template('results.html', location=location, temp=temp, feels_like=feels_like, weather=weather)
+
+
+def get_wather_results(cityname, apy_key):
     
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}".format(cityname,appi_key)
 
